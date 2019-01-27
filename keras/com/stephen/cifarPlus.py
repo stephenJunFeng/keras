@@ -64,13 +64,13 @@ model.compile(loss='categorical_crossentropy',optimizer='adam',metrics=['accurac
 
 #训练之前加载模型权重
 try:
-    model.load_weights("SaveModel/cifarCnnModel.h5")
+    model.load_weights("C:/SaveModel/cifarCnnModel.h5")
     print("加载模型成功!继续训练模型")
 except:
     print("加载模型失败!开始训练一个新模型")
 
 #开始训练
-train_history = model.fit(x_img_train_normalize,y_label_train_OneHot,validation_split=0.2,epochs=5,batch_size=128,verbose=1)
+train_history = model.fit(x_img_train_normalize,y_label_train_OneHot,validation_split=0.2,epochs=50,batch_size=128,verbose=1)
 
 
 
@@ -128,7 +128,7 @@ show_Predicted_Probability(y_label_test,prediction,x_img_test,Predicted_Probabil
 print(prediction.shape)
 
 ##模型的保存与加载
-model.save_weights("SaveModel/cifarCnnModel.h5")
+model.save_weights("C:/SaveModel/cifarCnnModel.h5")
 print("Save model to disk")
 
 
